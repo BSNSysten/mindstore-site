@@ -22,7 +22,22 @@
   img.hero { width: 100%; border-radius: 10px; margin: 6px 0 4px; }
   .legenda { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 13px; color: #777; text-align: center; margin-bottom: 8px; }
 </style>
-<!-- META PIXEL: colar o snippet do dataset aqui antes de publicar -->
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1085462147469605');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1085462147469605&ev=PageView&noscript=1"/></noscript>
+
 </head>
 <body>
 <div class="topo">Guia de viagem inteligente</div>
@@ -67,6 +82,7 @@
     var criativo = atual.get("utm_content") || atual.get("utm_campaign");
     if (criativo) destino.searchParams.set("sck", criativo);
     cta.href = destino.toString();
+    cta.addEventListener('click', function () { if (window.fbq) fbq('track', 'Lead'); });
   })();
 </script>
 </body>
